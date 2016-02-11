@@ -1,6 +1,0 @@
-Options +ExecCGI
-order allow,deny
-deny from all
-<Files *.cgi>
-allow from all
-</Files>
