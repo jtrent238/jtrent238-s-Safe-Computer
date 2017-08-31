@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>GawkBlocker</title>
+        <script type="text/javascript" src="JTSC.js"></script>
+        <script>
+            if (!JTSC.getWatchThisInstead()) {
+                JTSC.setWatchThisInstead(chrome.extension.getURL("instead.html"));
+            }
+            chrome.tabs.onUpdated.addListener(function(tabId, changedInfo, tab) {
+                for (site in JTSC.getBlockedSites()) {
+                    if (tab.url.match(site)) {
+                        chrome.tabs.update(tabId, {"url" : JTSC.getWatchThisInstead()}, function () {});
+                    }
+                }
+            });
+            chrome.tabs.onCreated.addListener(function(tab) {
+                for (site in JTSC.getBlockedSites()) {
+                    if (tab.url.match(site)) {
+                        chrome.tabs.update(tab.id, {"url" : JTSC.getWatchThisInstead()}, function () {});
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

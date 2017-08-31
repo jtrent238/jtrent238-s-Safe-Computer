@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "jtrent238SafeComputer",
+  "version": "1.0.0.0",
+  "description": "Protect your computer from bad sites!",
+  "background_page" : "background.html",
+  "options_page": "options.html",
+  "icons": {
+    "16" : "img/JTSC-16.png",
+    "48" : "img/JTSC-48.png",
+    "128" : "img/JTSC-128.png"
+  },
+  "browser_action": {
+    "default_icon": "img/JTSC-16.png",
+    "default_title": "jtrent238SafeComputer",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs"]
+}
